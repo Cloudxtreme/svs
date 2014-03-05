@@ -1,11 +1,12 @@
 'use strict';
 var expect = require('chai').expect
   , restler = require('restler')
-  , app = require('../app')
   , config = require('../config')
   , fs = require('fs')
 
 describe('downloadFile',function(){
+  config.set('apiSecret','foo')
+  var app = require('../app')
   var server
   before(function(done){
     server = app.listen(9081,done)

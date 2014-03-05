@@ -4,4 +4,4 @@ node_modules
 *.log
 log/*
 /videos
-./config.user.js
+config.user.js
