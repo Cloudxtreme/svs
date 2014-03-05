@@ -5,7 +5,8 @@ var ObjectManage = require('object-manage')
 var config = new ObjectManage()
 config.load({
   port: 3000,
-  videoRoot: './videos'
+  videoRoot: './videos',
+  apiSecret: ''
 })
 
 if(fs.existsSync('./config.user.js')){

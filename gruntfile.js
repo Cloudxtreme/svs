@@ -18,25 +18,19 @@ module.exports = function(grunt){
         jshintrc: true,
         reporter: require('jshint-stylish')
       },
-      server: ['app/**/*.js','test/**/*.js']
+      server: ['*.js','test/*.js']
     },
     mochaTest: {
       unit: {
         options: {
           reporter: 'spec'
         },
-        src: ['test/unit/init.js','test/unit/*.test.js','test/unit/**/*.test.js']
-      },
-      e2e: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['test/e2e/init.js','test/e2e/*.test.js','test/e2e/**/*.test.js']
+        src: ['test/*.test.js']
       }
     },
     watch: {
       dev: {
-        files: ['*.js','actions/*.js','helpers/*.js','models/*.js','services/*.js'],
+        files: ['*.js'],
         tasks: ['test']
       }
     },
