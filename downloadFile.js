@@ -19,7 +19,7 @@ var downloadFile = function(url,dest,cb) {
       file.close()
       cb(err)
     })
-})
+  })
 }
 
 module.exports = function(req,res){

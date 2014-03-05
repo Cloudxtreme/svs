@@ -64,6 +64,7 @@ describe('downloadFile',function(){
     })
   })
   it('should download the file',function(done){
+    this.timeout(20000)
     var file = config.get('root') + '/foo.txt'
     var data = {secret: 'foo', url: 'http://files.esited.com/vimrc', destination: 'foo.txt'}
     restler.get('http://localhost:9081/downloadFile',{query: data}).on('complete',function(result,res){
