@@ -40,7 +40,7 @@ describe('downloadFile',function(){
     })
   })
   it('should fail when the destination already exists',function(done){
-    var file = config.get('videoRoot') + '/foo.txt'
+    var file = config.get('root') + '/foo.txt'
     fs.writeFileSync(file,'foo')
     var data = {secret: 'foo', url: 'http://files.esited.com/vimrc', destination: 'foo.txt'}
     restler.get('http://localhost:9081/downloadFile',{query: data}).on('complete',function(result,res){
@@ -52,7 +52,7 @@ describe('downloadFile',function(){
     })
   })
   it('should allow overwrite of destination',function(done){
-    var file = config.get('videoRoot') + '/foo.txt'
+    var file = config.get('root') + '/foo.txt'
     fs.writeFileSync(file,'foo')
     var data = {secret: 'foo', url: 'http://files.esited.com/vimrc', destination: 'foo.txt', overwrite: 'true', dry: 'true'}
     restler.get('http://localhost:9081/downloadFile',{query: data}).on('complete',function(result,res){
@@ -64,7 +64,7 @@ describe('downloadFile',function(){
     })
   })
   it('should download the file',function(done){
-    var file = config.get('videoRoot') + '/foo.txt'
+    var file = config.get('root') + '/foo.txt'
     var data = {secret: 'foo', url: 'http://files.esited.com/vimrc', destination: 'foo.txt'}
     restler.get('http://localhost:9081/downloadFile',{query: data}).on('complete',function(result,res){
       expect(res.statusCode).to.equal(200)

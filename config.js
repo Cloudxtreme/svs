@@ -5,7 +5,7 @@ var ObjectManage = require('object-manage')
 var config = new ObjectManage()
 config.load({
   port: 3000,
-  videoRoot: './videos',
+  root: './videos',
   apiSecret: ''
 })
 

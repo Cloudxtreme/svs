@@ -19,7 +19,7 @@ var downloadFile = function(url,dest,cb) {
 }
 
 module.exports = function(req,res){
-  var destination = config.get('videoRoot') + '/' + req.query.destination
+  var destination = config.get('root') + '/' + req.query.destination
   if(req.query.secret !== config.get('apiSecret')){
     res.send({status: 'error', message: 'Permission denied'})
   } else if(!req.query.url){

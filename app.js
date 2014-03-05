@@ -11,7 +11,7 @@ if(!config.get('apiSecret')){
 //import file
 app.get('/downloadFile',require('./downloadFile'))
 
-app.use(express.static(config.get('videoRoot')))
+app.use(express.static(config.get('root')))
 
 //only listen if called directly
 if(require.main === module){
