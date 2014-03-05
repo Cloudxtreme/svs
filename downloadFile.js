@@ -1,9 +1,13 @@
 'use strict';
 var fs = require('fs')
+  , path = require('path')
   , http = require('http')
   , config = require('./config')
 
 var downloadFile = function(url,dest,cb) {
+  if(!fs.existsSync(path.dirname(dest))){
+    fs.mkdirSync(path.dirname(dest))
+  }
   var file = fs.createWriteStream(dest)
   http.get(url,function(response){
     response.pipe(file)
@@ -15,7 +19,7 @@ var downloadFile = function(url,dest,cb) {
       file.close()
       cb(err)
     })
-  })
+})
 }
 
 module.exports = function(req,res){
