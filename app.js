@@ -19,9 +19,6 @@ app.get('/downloadFile',require('./downloadFile'))
 
 app.use(express.static(config.get('root')))
 
-//only listen if called directly
-if(require.main === module){
-  app.listen('production' === process.env.NODE_ENV ? 80 : config.get('port'))
-}
+app.listen('production' === process.env.NODE_ENV ? 80 : config.get('port'))
 
 module.exports = app
